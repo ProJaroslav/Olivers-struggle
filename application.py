@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 import json, requests
 from bs4 import BeautifulSoup
 
@@ -8,9 +8,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    money_have = get_amount_scrape()
-    count(request.remote_addr)
-    return f'Hello!\n {money_have}'
+    return render_template("index.html")
+
+    # money_have = get_amount_scrape()
+    # count(request.remote_addr)
+    # return f'Hello!\n {money_have}'
 
 
 def count(ip_address):
