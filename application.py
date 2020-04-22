@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    count(request.remote_addr)
+    count(request.environ.get('HTTP_X_REAL_IP', request.remote_addr))
     return render_template("index.html", amount=get_amount_scrape())
 
 
