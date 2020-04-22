@@ -8,11 +8,15 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    count(request.environ.get('HTTP_X_REAL_IP', request.remote_addr))
+    try:
+        count(request.headers['X-Real-IP'])      
+    except Exception:
+        count("0.0.0.0")
+    
     try:
         amount = get_amount_scrape()
     except Exception:
-        pass
+        amount = ""
     return render_template("index.html", amount=amount)
 
 
