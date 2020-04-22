@@ -9,10 +9,13 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     try:
-        count(request.headers['X-Real-IP'])      
+        if request.headers.getlist("X-Forwarded-For"):
+           ip = request.headers.getlist("X-Forwarded-For")[0]
+        else:
+            ip = request.remote_addr
+        count(ip)      
     except Exception:
-        count("0.0.0.0")
-    
+        count("0.0")
     try:
         amount = get_amount_scrape()
     except Exception:
