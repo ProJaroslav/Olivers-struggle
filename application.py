@@ -9,7 +9,11 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     count(request.environ.get('HTTP_X_REAL_IP', request.remote_addr))
-    return render_template("index.html", amount=get_amount_scrape())
+    try:
+        amount = get_amount_scrape()
+    except Exception:
+        pass
+    return render_template("index.html", amount=amount)
 
 
 @app.route('/help')
@@ -46,8 +50,7 @@ def get_amount_scrape():
     response = requests.get("https://www.nadejeprooliho.cz/")
     soup = BeautifulSoup(response.text, "html.parser")
     spans = soup.find_all("span")
-    czk = spans[22].get_text().replace("VYBRÁNO:", "").replace("Kč", "").replace("\xa0", "")
-
+    czk = spans[22].get_text().replace("VYBRÁNO:", "").replace("Kč", "").replace("\xa0", "").replace(" ", "")
     euro = float(czk) / curency()
     formated_euro = str(float("{:.2f}".format(euro)))
     amount = formated_euro.split(".")[0]
