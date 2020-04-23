@@ -26,12 +26,22 @@ def index():
 
 @app.route('/help')
 def help():
-    return render_template("help.html")
+    try:
+        amount = get_amount_scrape()
+    except Exception as e:
+        print(e)
+        amount = "1 607 270"
+    return render_template("help.html", amount=amount)
 
 
 @app.route('/story')
 def story():
-    return render_template("story.html")
+    try:
+        amount = get_amount_scrape()
+    except Exception as e:
+        print(e)
+        amount = "1 607 270"
+    return render_template("story.html", amount=amount)
 
 
 @app.route('/developer/y8Nasd651zgd5s6g4sm0fKocdadx')
