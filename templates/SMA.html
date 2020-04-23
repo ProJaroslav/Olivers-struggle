@@ -1,92 +1,26 @@
-<!doctype html>
-<html lang="en">
+{% extends "layout.html" %}
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+{% block content%}
 
-    <title>Oliver's struggle</title>
-</head>
+<div class="container" style="text-align: center">
+    <p>
+        Spinal muscular atrophy (SMA) is a genetic disease affecting the central nervous system, peripheral nervous system, and voluntary muscle movement (skeletal muscle).
+        Most of the nerve cells that control muscles are located in the spinal cord, which accounts for the word spinal in the name of the disease. SMA is muscular because its primary effect is on muscles, which don’t receive signals from these nerve cells. Atrophy is the medical term for getting smaller, which is what generally happens to muscles when they’re not stimulated by nerve cells.           
+        SMA involves the loss of nerve cells called motor neurons in the spinal cord and is classified as a motor neuron disease.            
+        In the most common form of SMA (chromosome 5 SMA, or SMN-related SMA), there is wide variability in age of onset, symptoms, and rate of progression. In order to account for these differences, chromosome 5-related SMA, which often is autosomal recessive, is classified into types 1 through 4.            
+        The age at which SMA symptoms begin roughly correlates with the degree to which motor function is affected: The earlier the age of onset, the greater the impact on motor function. Children who display symptoms at birth or in infancy typically have the lowest level of functioning (type 1). Later-onset SMA with a less severe course (types 2 and 3, and in teens or adults, type 4) generally correlates with increasingly higher levels of motor function.
+    </p>
+</div>
+<hr>
 
-<body>
-    <script src="../static/js/main.js"></script>
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en/sdk.js#xfbml=1&version=v6.0">
-    </script>
-
-    <div class="container">
-        <nav class="navbar navbar-expand-md navbar-light">
-            <span><img style="float: left; width: 100px; height: 100px;" class="img-fluid navbar-brand"
-                    src="../static/images/hearth.png" alt="">
-            </span>
-            <h1>Help Oliver</h1>
-
-            <div style="margin-left: 50px;" class="fb-share-button" data-href="https://olivers-struggle.com/" data-layout="button_count"
-            data-size="large"><a target="_blank"
-                href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Folivers-struggle.com%2F&amp;src=sdkpreparse"
-                class="fb-xfbml-parse-ignore">Share</a></div>
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
-                aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarToggler">
-                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/help">How can you help</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/story">Story</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/sma">SMA</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+<div class="container mt-5 text-center">
+    <div class="row">
+        <div class="col-12"><p id="countdown"></p></div>
+        <div class="col-12"><h3>We need: 2 250 000 EUR</h3></div>
+        <div class="col-12"><h3 style="font-weight: lighter">We have: {{ amount }} EUR</h3></div>
     </div>
-    <hr>
-
-    <div class="container" style="text-align: center">
-        <p>
-            Spinal muscular atrophy (SMA) is a genetic disease affecting the central nervous system, peripheral nervous system, and voluntary muscle movement (skeletal muscle).
-            Most of the nerve cells that control muscles are located in the spinal cord, which accounts for the word spinal in the name of the disease. SMA is muscular because its primary effect is on muscles, which don’t receive signals from these nerve cells. Atrophy is the medical term for getting smaller, which is what generally happens to muscles when they’re not stimulated by nerve cells.           
-            SMA involves the loss of nerve cells called motor neurons in the spinal cord and is classified as a motor neuron disease.            
-            In the most common form of SMA (chromosome 5 SMA, or SMN-related SMA), there is wide variability in age of onset, symptoms, and rate of progression. In order to account for these differences, chromosome 5-related SMA, which often is autosomal recessive, is classified into types 1 through 4.            
-            The age at which SMA symptoms begin roughly correlates with the degree to which motor function is affected: The earlier the age of onset, the greater the impact on motor function. Children who display symptoms at birth or in infancy typically have the lowest level of functioning (type 1). Later-onset SMA with a less severe course (types 2 and 3, and in teens or adults, type 4) generally correlates with increasingly higher levels of motor function.
-        </p>
-    </div>
-    <hr>
-
-    <div class="container mt-5 text-center">
-        <div class="row">
-            <div class="col-12"><p id="countdown"></p></div>
-            <div class="col-12"><h3>We need: 2 250 000 EUR</h3></div>
-            <div class="col-12"><h3 style="font-weight: lighter">We have: {{ amount }} EUR</h3></div>
-        </div>
-    </div>
+</div>
 
 
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-    </script>
-</body>
-
-</html>
+{% endblock content %}
