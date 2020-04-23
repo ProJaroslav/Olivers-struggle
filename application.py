@@ -8,18 +8,40 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    count(request.remote_addr)
-    return render_template("index.html", amount=get_amount_scrape())
+    try:
+        if request.headers.getlist("X-Forwarded-For"):
+           ip = request.headers.getlist("X-Forwarded-For")[0]
+        else:
+            ip = request.remote_addr
+        count(ip)      
+    except Exception:
+        count("0.0")
+    try:
+        amount = get_amount_scrape()
+    except Exception as e:
+        print(e)
+        amount = "1 607 270"
+    return render_template("index.html", amount=amount)
 
 
 @app.route('/help')
 def help():
-    return render_template("help.html")
+    try:
+        amount = get_amount_scrape()
+    except Exception as e:
+        print(e)
+        amount = "1 607 270"
+    return render_template("help.html", amount=amount)
 
 
 @app.route('/story')
 def story():
-    return render_template("story.html")
+    try:
+        amount = get_amount_scrape()
+    except Exception as e:
+        print(e)
+        amount = "1 607 270"
+    return render_template("story.html", amount=amount)
 
 
 @app.route('/developer/y8Nasd651zgd5s6g4sm0fKocdadx')
@@ -46,8 +68,7 @@ def get_amount_scrape():
     response = requests.get("https://www.nadejeprooliho.cz/")
     soup = BeautifulSoup(response.text, "html.parser")
     spans = soup.find_all("span")
-    czk = spans[22].get_text().replace("VYBRÁNO:", "").replace("Kč", "").replace("\xa0", "")
-
+    czk = spans[22].get_text().replace("VYBRÁNO:", "").replace("Kč", "").replace("\xa0", "").replace(" ", "")
     euro = float(czk) / curency()
     formated_euro = str(float("{:.2f}".format(euro)))
     amount = formated_euro.split(".")[0]

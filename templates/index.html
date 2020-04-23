@@ -1,146 +1,115 @@
 <!doctype html>
 <html lang="en">
 
-  <head>
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <style>
-      .row div{margin-top: 25px}
-      .row p{
-       font-size: 20px;
-       padding-left: 0;
-       font-family: 'Courier New', Courier, monospace;
-       font-style: italic;
-       }
+    <title>Oliver's struggle</title>
+</head>
 
-      body{
-        /* background-image:url(C:/Users/jaros/Programming/web/oliveros/site/images/background.jpg); */
-        background-color: whitesmoke;
-        background-size: 100%;
-      }
-
-      .row h1{
-        font-size: 70px;
-        font-family: 'Courier New', Courier, monospace;
-      }
-
-      .row {
-        margin-right: 0px;
-      }
-
-      h3{
-        text-align: center;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="row">  
-      <div class="col-sm-1 col-md-12 col-lg-3">
-      </div> 
-      <div class="d-none d-lg-block col-md-0 col-lg-1">
-        <img src="../static/images/heart.svg " class="d-none d-md-block">
-      </div> 
-      <div class="col-sm-12 col-md-12 col-lg-4" style="border-bottom: black 7px solid;">
-        <H1 style= "padding-top: 65px; padding-left: 20px;">Help Oliver</H1>         
-      </div>
-      <div class="col-sm-12 col-md-12 col-lg-4" style="border-bottom: black 7px solid; ">
-        <nav class="text-center">
-          <button onclick="redirect('/')" class="navbar-toggler" data-toggle="collapse" style="padding-top: 90px; outline:none">
-            <p>Home</p>
-          </button>
-          <button onclick="redirect('/help')" class="navbar-toggler" data-toggle="collapse" style="padding-top: 120px; outline:none">
-            <p>How can you help</p>
-          </button>
-          <button onclick="redirect('/story')" class="navbar-toggler" data-toggle="collapse" style="padding-top: 90px; outline:none">
-            <p>Story</p>
-          </button>
-        </nav>
-      </div>
-    </div>
-
-    <div class="container" style="padding-top: 20px;">
-      <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-3">
-            <img src="../static/images/pic1.png" alt="">
-        </div>
-        <div class="col-sm-12 col-md-12 col-lg-5">
-            <h2>What happened</h2>
-            <p>This is Oliver, he is one and a half years old. Unfortunately, he was born with Spinal muscular atrophy. His parents have only four months left to pay the therapy themselves before it is approved in the EU.  </p>
-        </div>  
-      </div>
-    </div>
-
-    <div class="container" style="padding-bottom: 20px; padding-top: 10px;">
-      <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-3">
-          <img src="../static/images/pic2.png" alt="">
-        </div>
-        <div class="col-sm-12 col-md-12 col-lg-3">
-          <img src="../static/images/pic3.png" style="padding-left: 0px;">
-        </div>
-        <div class="col-sm-12 col-lg-6" style= "padding-left: 15px;">
-          <h2>How can I help?  </h2>
-          <p>You can financially support the treatment.
-            <br>
-            Account: 1117771700/5500 
-            <br>
-           Variable symbol: 8888
-           <br>
-           Message for recipient: OLIVER
-           <br>
-           Original site:
-           <a href="https://www.nadejeprooliho.cz/">www.nadejeprooliho.cz</a> 
-           </p>
-        </div>   
-      </div>
-    </div>
+<body>
+    <script src="../static/js/main.js"></script>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en/sdk.js#xfbml=1&version=v6.0">
+    </script>
 
     <div class="container">
-    <div class="row" style="background: none">
-      <div class="col-md"></div>
-      <div class="col-md-8" style="border-bottom: black 5px solid; padding-top: 10px; text-align: center;">
-        <p id="countdown"></p>
-        <h3>We need: 2 250 000 EUR</h3>
-        <h3 style="font-weight: lighter">We have: {{ amount }} EUR</h3> <!-- to {{ amount }} je údaj který doplní BE při renderu -->
-      </div>
-      <div class="col-md"></div>
+        <nav class="navbar navbar-expand-md navbar-light">
+            <span><img style="float: left; width: 100px; height: 100px;" class="img-fluid navbar-brand"
+                    src="../static/images/hearth.png" alt="">
+            </span>
+            <h1>Help Oliver</h1>
+
+            <div style="margin-left: 50px;" class="fb-share-button" data-href="https://olivers-struggle.com/" data-layout="button_count"
+            data-size="large"><a target="_blank"
+                href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Folivers-struggle.com%2F&amp;src=sdkpreparse"
+                class="fb-xfbml-parse-ignore">Share</a></div>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
+                aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarToggler">
+                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/help">How can you help</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/story">Story</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </div>
-  </div>
+    <hr>
 
-  <script>
-    function redirect(path) {
-      window.location.href = path;
-    }
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4 mb-4"><img class="img-fluid" src="../static/images/pic1.png" alt=""></div>
+            <div class="col-md-4">
+                <h2>What happened</h2>
+                <p>This is Oliver, he is one and a half years old. Unfortunately, he was born with Spinal muscular
+                    atrophy. His
+                    parents have only four months left to pay the therapy themselves before it is approved in the EU.
+                </p>
+            </div>
+        </div>
+    </div>
 
-    (function countdown(){
-      let countDownDate = new Date("May 15, 2020 02:9:31").getTime();
-      let x = setInterval(function() {
-      let now = new Date().getTime();
-      let distance = countDownDate - now;
-      let days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        
-      document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-      if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("countdown").innerHTML = "EXPIRED";
-      }
-      }, 1000);
-    })();
-  </script>
+    <div class="container mt-5 ">
+        <div class="row justify-content-sm-center"">
+            <div class=" col-lg-4 col-md-6 mb-4"><img class="img-fluid" src="../static/images/pic2.png" alt=""></div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <img class="img-fluid" src="../static/images/pic3.png" alt="">
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <h2>How can I help? </h2>
+                <p>You can financially support the treatment.
+                    <br>
+                    Account: 1117771700/5500
+                    <br>
+                    Variable symbol: 8888
+                    <br>
+                    Message for recipient: OLIVER
+                    <br>
+                    Original site:
+                    <a href="https://www.nadejeprooliho.cz/">nadejeprooliho.cz</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <hr>
 
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <div class="container mt-5 text-center">
+        <div class="row">
+            <div class="col-12"><p id="countdown"></p></div>
+            <div class="col-12"><h3>We need: 2 250 000 EUR</h3></div>
+            <div class="col-12"><h3 style="font-weight: lighter">We have: {{ amount }} EUR</h3></div>
+        </div>
+    </div>
 
-  </body>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+</body>
+
 </html>

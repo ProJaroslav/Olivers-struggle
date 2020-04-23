@@ -1,0 +1,25 @@
+.row div{margin-top: 25px}
+.row p{
+ font-size: 20px;
+ padding-left: 0;
+ font-family: 'Courier New', Courier, monospace;
+ font-style: italic;
+ }
+
+body{
+  background-color: whitesmoke;
+  background-size: 100%;
+}
+
+.row h1{
+  font-size: 70px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.row {
+  margin-right: 0px;
+}
+
+h3{
+  text-align: center;
+}
