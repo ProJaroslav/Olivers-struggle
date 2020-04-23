@@ -18,8 +18,8 @@ def index():
         count("0.0")
     try:
         amount = get_amount_scrape()
-    except Exception:
-        amount = ""
+    except Exception as e:
+        amount = e
     return render_template("index.html", amount=amount)
 
 
