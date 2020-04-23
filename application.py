@@ -44,6 +44,16 @@ def story():
     return render_template("story.html", amount=amount)
 
 
+@app.route('/sma')
+def sma():
+    try:
+        amount = get_amount_scrape()
+    except Exception as e:
+        print(e)
+        amount = "1 607 270"
+    return render_template("SMA.html", amount=amount)
+
+
 @app.route('/developer/y8Nasd651zgd5s6g4sm0fKocdadx')
 def development():
     with open('visitors.json', 'r', encoding='utf-8') as file:
@@ -82,4 +92,4 @@ def curency():
 
 
 if __name__ == "__main__":
-    app.run(port=5000, debug=True)
+    app.run()
