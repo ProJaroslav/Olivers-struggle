@@ -82,5 +82,4 @@ def curency():
 
 
 if __name__ == "__main__":
-    pass
-    # app.run(port=5000, debug=True)
+    app.run()
