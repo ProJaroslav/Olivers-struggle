@@ -19,7 +19,8 @@ def index():
     try:
         amount = get_amount_scrape()
     except Exception as e:
-        amount = e
+        print(e)
+        amount = "1 607 270"
     return render_template("index.html", amount=amount)
 
 
