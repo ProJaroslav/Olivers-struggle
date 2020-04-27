@@ -20,7 +20,7 @@ def index():
         amount = get_amount_scrape()
     except Exception as e:
         print(e)
-        amount = "1 607 270"
+        amount = "1 803 698"
     return render_template("index.html", amount=amount)
 
 
@@ -30,7 +30,7 @@ def help():
         amount = get_amount_scrape()
     except Exception as e:
         print(e)
-        amount = "1 607 270"
+        amount = "1 803 698"
     return render_template("help.html", amount=amount)
 
 
@@ -40,7 +40,7 @@ def story():
         amount = get_amount_scrape()
     except Exception as e:
         print(e)
-        amount = "1 607 270"
+        amount = "1 803 698"
     return render_template("story.html", amount=amount)
 
 
@@ -50,7 +50,7 @@ def sma():
         amount = get_amount_scrape()
     except Exception as e:
         print(e)
-        amount = "1 607 270"
+        amount = "1 803 698"
     return render_template("SMA.html", amount=amount)
 
 
@@ -78,7 +78,13 @@ def get_amount_scrape():
     response = requests.get("https://www.nadejeprooliho.cz/")
     soup = BeautifulSoup(response.text, "html.parser")
     spans = soup.find_all("span")
-    czk = spans[22].get_text().replace("VYBRÁNO:", "").replace("Kč", "").replace("\xa0", "").replace(" ", "")
+    index = 0
+    for span in spans:
+        if "VYBRÁNO:" in span.get_text():
+            break
+        else:
+            index += 1
+    czk = spans[index].get_text().replace("VYBRÁNO:", "").replace("Kč", "").replace("\xa0", "").replace(" ", "")
     euro = float(czk) / curency()
     formated_euro = str(float("{:.2f}".format(euro)))
     amount = formated_euro.split(".")[0]
