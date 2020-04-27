@@ -58,6 +58,20 @@
     {% block content %}{% endblock %}
     
     <hr>
+    <div class="container mt-5 text-center">
+        <div class="row">
+            <div class="col-12">
+                <p id="countdown"></p>
+            </div>
+            <div class="col-12">
+                <h3>We need: 2 250 000 EUR</h3>
+            </div>
+            <div class="col-12">
+                <h3 style="font-weight: lighter">We have: {{ amount }} EUR</h3>
+            </div>
+        </div>
+    </div>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
