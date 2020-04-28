@@ -61,6 +61,7 @@ def development():
 
 
 def count(ip_address):
+    ip_address = ip_address.split(":")[0]
     data = {}
     with open('visitors.json', 'r', encoding='utf-8') as file:
         data = json.load(file)
